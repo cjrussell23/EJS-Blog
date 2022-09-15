@@ -47,6 +47,7 @@ app.set('port', process.env.PORT || 3000);
 
 // routes
 app.get('/', async (req, res) => {
+    console.log("Visit home page");
     const articles = await Article.find().sort({ createdAt: 'desc' });
     // if no user is logged in, set the user
     res.render('articles/index', { articles: articles, user: req?.session?.user });

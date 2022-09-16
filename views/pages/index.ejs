@@ -8,43 +8,13 @@
 
 <body>
     <%- include('../partials/_main_navigation') %>
-    <!-- End Navigation Bar -->
-    <div id="header">
-        <div id="header-image">
-        </div>
-        <div id="header-text">
-            <h1>Welcome!</h1>
-        </div>
+    
+    <div class="container-fluid d-flex justify-content-center align-items-center" id="landing">
+        <h1 id="welcome-text"></h1><h1 class="blink" id="cursor">|</h1>
     </div>
-    <div id="spacer">
-    </div>
-    <!-- Main Content -->
-    <div class="container-fluid px-0" id="main-content-container">
-        <div class="container-md d-flex flex-wrap px-0" id="articles">
-            <% articles.forEach(article=> { %>
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3 article-column px-0 px-md-2 py-md-2">
-                    <a href="articles/<%= article.slug %>" class="article-link">
-                        <div class="card article-card">
-                            <img src="<%= article.previewImageURL %> " class="card-img-top"
-                                alt="Image for <%= article.title %>" height="250">
-                            <div class="card-title">
-                                <h4 class="text-center">
-                                    <%= article.title %>
-                                </h4>
-                                <div class="card-text text-muted mb-2 px-2">
-                                    <%= article.createdAt.toLocaleDateString() %>
-                                </div>
-                                <div class="card-subtitle px-2">
-                                    <%= article.description %>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <% }) %>
-        </div>
-    </div>
+
     <%- include('../partials/_end_scripts') %>
+    <script src="../js/home.js"></script>
 </body>
 
 </html>

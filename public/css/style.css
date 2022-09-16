@@ -19,7 +19,6 @@
     height: 100%;
     width: 100%;
     background-size: cover;
-    background-image: url("../img/header.svg");
     background-position: center center;
 }
 
@@ -64,7 +63,12 @@ body {
     background-color: var(--light-grey);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Noticia Text', serif;
 }
 
@@ -81,7 +85,7 @@ h1, h2, h3, h4, h5, h6 {
 .article-card:hover {
     box-shadow: -2px 0 var(--dark-secondary), 0 2px var(--dark-secondary), 2px 0 var(--dark-secondary), 0 -2px var(--dark-secondary);
     text-decoration: none;
-    color:#000000;
+    color: #000000;
 }
 
 .article-card {
@@ -103,7 +107,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* navbar */
-.navbar-brand, .offcanvas-title{
+.navbar-brand,
+.offcanvas-title {
     font-family: 'Megrim', cursive !important;
     text-shadow: var(--dark) 2px 2px;
     font-size: 2.5rem;
@@ -115,7 +120,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .offcanvas-header {
     background-size: cover;
-    background-image: url("../img/header.svg");
     background-position: center center;
 }
 
@@ -133,17 +137,21 @@ h1, h2, h3, h4, h5, h6 {
     .navbar-nav {
         justify-content: center;
     }
+
     .offcanvas-body {
         display: flex;
         justify-content: center;
         align-items: center;
     }
+
     .nav-link {
         font-size: 3rem;
     }
+
     .nav-item {
         text-align: center;
     }
+
     .navbar-nav li::before {
         position: absolute;
         left: 50%;
@@ -153,8 +161,9 @@ h1, h2, h3, h4, h5, h6 {
         width: 90%;
         height: 1px;
         background-color: #000000;
-        
+
     }
+
     .navbar-nav li:first-child::before {
         display: none;
     }
@@ -181,3 +190,35 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
+#landing {
+    background-image: url("../img/peyto_lake.jpg");
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100vh;
+}
+
+#landing h1 {
+    font-size: 8rem;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.blink {
+    animation: blink-animation 1s steps(5, start) infinite;
+    -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
+@-webkit-keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}

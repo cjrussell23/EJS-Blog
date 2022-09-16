@@ -124,7 +124,9 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--secondary);
 }
 
-
+.active {
+    color: var(--secondary) !important;
+}
 
 /* Screen size less than md <768 */
 @media (max-width: 768px) {

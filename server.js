@@ -48,23 +48,29 @@ app.set('port', process.env.PORT || 3000);
 // routes
 app.get('/', async (req, res) => {
     const articles = await Article.find().sort({ createdAt: 'desc' });
-    res.render('pages/index', { articles: articles, admin: req?.session?.user?.admin });
+    res.render('pages/index', { articles: articles, admin: req?.session?.user?.admin, pageId: 'home' });
 });
 app.get('/blog', async (req, res) => {
     const articles = await Article.find().sort({ createdAt: 'desc' });
-    res.render('pages/blog', { articles: articles, admin: req?.session?.user?.admin });
+    res.render('pages/blog', { articles: articles, admin: req?.session?.user?.admin, pageId: 'blog' });
 });
 app.get('/login', (req, res) => {
-    res.render('pages/login', { admin: req?.session?.user?.admin });
+    res.render('pages/login', { admin: req?.session?.user?.admin, pageId: 'login' });
 });
 app.get('/register', (req, res) => {
-    res.render('pages/register', { admin: req?.session?.user?.admin });
+    res.render('pages/register', { admin: req?.session?.user?.admin, pageId: 'register' });
 });
 app.get('/about', (req, res) => {
-    res.render('pages/about', { admin: req?.session?.user?.admin });
+    res.render('pages/about', { admin: req?.session?.user?.admin, pageId: 'about' });
 });
 app.get('/contact', (req, res) => {
-    res.render('pages/contact', { admin: req?.session?.user?.admin });
+    res.render('pages/contact', { admin: req?.session?.user?.admin, pageId: 'contact' });
+});
+app.get('/projects', (req, res) => {
+    res.render('pages/projects', { admin: req?.session?.user?.admin, pageId: 'projects' });
+});
+app.get('/skills', (req, res) => {
+    res.render('pages/skills', { admin: req?.session?.user?.admin, pageId: 'skills' });
 });
 app.post('/register', (req, res) => {
     if (!req.body.username || !req.body.password) {

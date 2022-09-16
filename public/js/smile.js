@@ -13,7 +13,14 @@ function eyeball() {
 window.addEventListener("load", function () {
     typeMessage("Hi, I'm Charles!", 100, document.getElementById("welcome-text"), function () {
         var smile = document.getElementById("smile");
+        var learnMore = document.getElementById("learn-more");
         smile.classList.remove("hidden");
+        // wait 1 second before bounce
+        async function delayBounce() {
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            learnMore.classList.add("bounce"); 
+        }
+        delayBounce();
     });
 });
 

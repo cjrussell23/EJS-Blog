@@ -3,8 +3,8 @@
 
 <head>
     <%- include('../partials/_default_head') %>
-    <link rel="stylesheet" href="../css/smile.css" />
-    <title>CR - Home</title>
+        <link rel="stylesheet" href="../css/smile.css" />
+        <title>CR - Home</title>
 </head>
 
 <body>
@@ -14,14 +14,14 @@
             <div class="container-fluid d-flex flex-column justify-content-between align-items-center" id="landing">
                 <div class="d-flex flex-row align-items-center flex-grow-1">
                     <div class="text-center">
-                        <span id="welcome-text"></span>       
+                        <span id="welcome-text"></span>
                         <div id="smile" class="hidden">
-                                <div class="face">
-                                    <div class="eyes">
-                                        <div class="eye"></div>
-                                        <div class="eye"></div>
-                                    </div>
+                            <div class="face">
+                                <div class="eyes">
+                                    <div class="eye"></div>
+                                    <div class="eye"></div>
                                 </div>
+                            </div>
                         </div>
                         <span class="blink" id="cursor">|</span>
                     </div>
@@ -38,23 +38,19 @@
                     </a>
                 </div>
             </div>
-            <div class="container-fluid d-flex align-items-center" id="brief-description">
-                <div class="row">
-                    <div class="col-6"></div>
-                    <div class="col-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    I am a software developer and I built this website to show the world what I can do.
-                                    Feel free to explore my <a href="/blog">blog</a>, take a look at my <a
-                                        href="/blog">projects</a>, learn more <a href="/blog">about</a> who I am, and
-                                    much more! 
-                                </p>
-                            </div>
-                        </div>
+            <div class="container-fluid d-flex align-items-center justify-content-center" id="brief-description">
+                <div class="col-6">
+                    <div id="brief-text">
+                        <h1 class="blur-bg">Hi there! <span class="wave">👋</span> I am a software developer with a passion for
+                            technology.</h1>
+                        <h1 class="my-5 blur-bg">I built this website to show the world what I can do.</h1>
+                        <h1 class="blur-bg">Feel free to explore my <a href="/blog">blog</a>, take a look at my <a
+                                href="/blog">projects</a>, learn more <a href="/blog">about</a> who I am, and much more!
+                        </h1>
                     </div>
                 </div>
             </div>
+
             <div class="container-fluid" id="whatsnew"></div>
             <%- include('../partials/_end_scripts') %>
                 <script src="../js/swipe.js"></script>

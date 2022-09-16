@@ -114,13 +114,17 @@ h6 {
     color: white;
 }
 
+.navbar-brand:hover {
+    text-decoration: none;
+    color: white;
+}
+
 .offcanvas-header {
     background-size: cover;
     background-position: center center;
 }
 
 #russell {
-    padding-left: 4.2rem;
     color: var(--secondary);
 }
 
@@ -292,13 +296,9 @@ h6 {
 
 .wave {
     animation-name: wave-animation;
-    /* Refers to the name of your @keyframes element below */
     animation-duration: 2.5s;
-    /* Change to speed up or slow down */
     animation-iteration-count: infinite;
-    /* Never stop waving :) */
     transform-origin: 70% 70%;
-    /* Pivot around the bottom-left palm */
     display: inline-block;
 }
 
@@ -311,7 +311,6 @@ h6 {
         transform: rotate(14.0deg)
     }
 
-    /* The following five values can be played with to make the waving more or less extreme */
     20% {
         transform: rotate(-8.0deg)
     }
@@ -332,8 +331,12 @@ h6 {
         transform: rotate(0.0deg)
     }
 
-    /* Reset for the last half to pause */
     100% {
         transform: rotate(0.0deg)
     }
+}
+
+#recent-work {
+    width: 100%;
+    height: 100vh;
 }

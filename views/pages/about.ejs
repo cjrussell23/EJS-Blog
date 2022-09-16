@@ -3,25 +3,55 @@
 
 <head>
     <%- include('../partials/_default_head') %>
-    <title>CR - About</title>
+    <link rel="stylesheet" href="../css/about.css">
+        <title>CR - About</title>
 </head>
 
 <body>
     <%- include('../partials/_main_navigation') %>
-    <!-- End Navigation Bar -->
-        <div id="header">
-            <div id="header-image"></div>
-            <div id="header-text"><h1>About!</h1></div>
+        <h1>Here is a timeline of my life</h1>
+
+        <div class="timeline-container">
+            <ul class="vertical-scrollable-timeline" id="vertical-scrollable-timeline">
+                <div class="list-progress">
+                    <div class="inner">
+                    </div>
+                </div>
+                <li>
+                    <h2>University of Manitoba</h2>
+                    <p>After graduating from high school, I moved back to Winnipeg to go to study music. It did not take me long to realize that as much as I loved music, doing it for work was not for me.</p>
+                    <div class="icon-holder">
+                        <i class="fa-solid fa-house-chimney date">2014</i>
+                    </div>
+                </li>
+                <li>
+                    <h2>Canadian Mennonite University</h2>
+                    <p>I was told by one of my friends that CMU had a really good math professor, and that the classes were much smaller. I thought this would be a much better fit for me. However, going into my 3rd year, I decided math was not the field for me. I had good grades, and felt like I was good at it, but I did not have the passion for it.</p>
+                    <div class="icon-holder">
+                        <i class="fa-solid fa-circle-info date">2015<br> - 18</i>
+                    </div>
+                </li>
+                <li>
+                    <h2>The Sign Source Ltd.</h2>
+                    <p>I took a break from school to figure out what I really wanted to do. I did not want to keep switching programs. It explored many options - engineering, architechture, electrician, etc. but none of them seemed to fit. Then I met a friend who was in computer science. He told me about how creative it was, and how he got to build websites and other programs. This sparked my interest - I knew from working at the Sign Source that I loved making things.</p>
+                    <div class="icon-holder">
+                        <i class="fa-solid fa-phone date">2018<br> - 21</i>
+                    </div>
+                </li>
+                <li>
+                    <h2>University of Winnipeg</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo finibus dui eget vestibulum. Cras fermentum mauris in eros elementum, ut malesuada lacus molestie. Curabitur pulvinar sed augue at efficitur. Praesent sed est rhoncus, placerat tellus vitae, cursus leo. Nulla euismod augue sed scelerisque porttitor.</p>
+                    <div class="icon-holder">
+                        <i class="fa-solid fa-phone date">2020<br> - 22</i>
+                    </div>
+                </li>
+            </ul>
         </div>
-        <div id="spacer"></div>
-        <!-- Main Content -->
-        <div class="container mt-4">
-            <div class="card px-3 px-2 ">
-                <p class="card-text text-center">Hello this is a description of what I do and stuff.</p>
-            </div>
-        </div>
+
         <%- include('../partials/_end_scripts') %>
-        <script src="../js/swipe.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+            <script src="../js/swipe.js"></script>
+            <script src="../js/about.js"></script>
 </body>
 
 </html>

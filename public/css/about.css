@@ -24,7 +24,7 @@ h1 {
     height: 100%;
     background-color: var(--secondary);
     position: absolute;
-    left: 81px;
+    left: 81px; 
     top: 4px;
     overflow: hidden;
 }

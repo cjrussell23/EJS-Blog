@@ -72,10 +72,6 @@ h6 {
     font-family: 'Noticia Text', serif;
 }
 
-.nav-link {
-    text-shadow: #000000 0px 0px 5px;
-}
-
 /* Login / Register Page */
 #loginContainer {
     height: 60%;
@@ -198,12 +194,20 @@ h6 {
     height: 100vh;
 }
 
-#landing h1 {
-    font-size: 8rem;
+#landing span {
+    font-size: 6rem;
     text-align: center;
     font-weight: bold;
     color: #fff;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#brief-description {
+    background-image: url("../img/fishing.jpg");
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100vh;
 }
 
 .blink {
@@ -221,4 +225,24 @@ h6 {
     to {
         visibility: hidden;
     }
+}
+
+#preloader {
+    background: linear-gradient(-45deg, #dc5228, #3a3a45, #23a6d5, #021e17);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    min-height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+}
+
+#learn-more {
+    text-decoration: none;
+    color: white;
+}
+
+#learn-more:hover {
+    text-decoration: none;
+    color: var(--light-grey);
 }

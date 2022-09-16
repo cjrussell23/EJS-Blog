@@ -3,58 +3,34 @@ window.addEventListener("scroll", (event) => {
     if (scroll > 0) {
         const nav = document.getElementById("main-nav");
         nav.classList.add("scrolled");
+        nav.classList.remove("navbar-light");
+        nav.classList.add("navbar-dark");
     }
     else {
         const nav = document.getElementById("main-nav");
         nav.classList.remove("scrolled");
+        nav.classList.add("navbar-light");
+        nav.classList.remove("navbar-dark");
     }
 });
-document.addEventListener('touchstart', handleTouchStart, false);
-document.addEventListener('touchmove', handleTouchMove, false);
 
-var xDown = null;
-var yDown = null;
-
-function getTouches(evt) {
-    return evt.touches ||             // browser API
-        evt.originalEvent.touches; // jQuery
+var loader = document.getElementById("preloader");
+if (loader) {
+    window.addEventListener("load", function () {
+        loader.style.display = "none";
+        typeMessage("Hi, I'm Charles!", 100, document.getElementById("welcome-text"));
+    });
 }
 
-function handleTouchStart(evt) {
-    const firstTouch = getTouches(evt)[0];
-    xDown = firstTouch.clientX;
-    yDown = firstTouch.clientY;
-};
-
-function handleTouchMove(evt) {
-    if (!xDown || !yDown) {
-        return;
-    }
-
-    var xUp = evt.touches[0].clientX;
-    var yUp = evt.touches[0].clientY;
-
-    var xDiff = xDown - xUp;
-    var yDiff = yDown - yUp;
-
-    if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
-        if (xDiff > 0) {
-            /* right swipe */
-            console.log("right swipe");
-            document.getElementById("main-nav-toggle").click();
-        } else {
-            /* left swipe */
-            console.log("left swipe");
-            document.getElementById("main-nav-toggle").click();
-        }
-    } else {
-        if (yDiff > 0) {
-            /* down swipe */
-        } else {
-            /* up swipe */
+function typeMessage(message, speed, element) {
+    let i = 0;
+    let text = message;
+    function typeWriter() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
         }
     }
-    /* reset values */
-    xDown = null;
-    yDown = null;
-};
+    typeWriter();
+}

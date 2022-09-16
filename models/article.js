@@ -34,6 +34,10 @@ const articleSchema = new mongoose.Schema({
     previewImageURL: {
         type: String,
         required: false
+    },
+    tag: {
+        type: String,
+        required: false
     }
 });
 

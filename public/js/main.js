@@ -1,9 +1,10 @@
+const nav = document.getElementById("main-nav");
+var colorMode = "dark";
+if (nav.classList.contains('navbar-light')) {
+    colorMode = "light";
+}
 window.addEventListener("scroll", (event) => {
-    const nav = document.getElementById("main-nav");
-    var colorMode = "dark";
-    if (nav.classList.contains('navbar-light')) {
-        colorMode = "light";
-    }
+
     console.log(colorMode)
     let scroll = this.scrollY;
     if (colorMode === "dark") {

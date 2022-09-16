@@ -47,22 +47,24 @@ app.set('port', process.env.PORT || 3000);
 
 // routes
 app.get('/', async (req, res) => {
-    console.log("Visit home page");
     const articles = await Article.find().sort({ createdAt: 'desc' });
-    // if no user is logged in, set the user
-    res.render('articles/index', { articles: articles, user: req?.session?.user });
+    res.render('pages/index', { articles: articles, admin: req?.session?.user?.admin });
+});
+app.get('/blog', async (req, res) => {
+    const articles = await Article.find().sort({ createdAt: 'desc' });
+    res.render('pages/blog', { articles: articles, admin: req?.session?.user?.admin });
 });
 app.get('/login', (req, res) => {
-    res.render('pages/login');
+    res.render('pages/login', { admin: req?.session?.user?.admin });
 });
 app.get('/register', (req, res) => {
-    res.render('pages/register');
+    res.render('pages/register', { admin: req?.session?.user?.admin });
 });
 app.get('/about', (req, res) => {
-    res.render('pages/about');
+    res.render('pages/about', { admin: req?.session?.user?.admin });
 });
 app.get('/contact', (req, res) => {
-    res.render('pages/contact');
+    res.render('pages/contact', { admin: req?.session?.user?.admin });
 });
 app.post('/register', (req, res) => {
     if (!req.body.username || !req.body.password) {
@@ -76,7 +78,7 @@ app.post('/register', (req, res) => {
             console.log(err);
             res.render('pages/register', { err: 'Error! Cannot register user.' });
         } else {
-            res.render('pages/login');
+            res.render('pages/login', { admin: req?.session?.user?.admin });
         }
     });
 });

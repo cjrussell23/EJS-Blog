@@ -7,21 +7,21 @@ router.get('/new', (req, res) => {
     if (!req.session.user?.admin) {
         res.redirect('/login');
     }
-    res.render('articles/new', { article: new Article() });
+    res.render('articles/new', { article: new Article(), admin: req?.session?.user?.admin });
 });
 router.get('/edit/:id', async (req, res) => {
     const article = await Article.findById(req.params.id);
-    if (!req.session.user?.admin){
+    if (!req.session?.user?.admin){
         res.redirect('/login');
     }
-    res.render('articles/edit', { article: article, user: req.session?.user });
+    res.render('articles/edit', { article: article, admin: req.session?.user?.admin });
 });
 router.get('/:slug', async (req, res) => {
     const article = await Article.findOne({slug: req.params.slug});
     if (article == null) {
         res.redirect('/');
     };
-    res.render('articles/show', { article: article, user: req.session?.user });
+    res.render('articles/show', { article: article, admin: req.session?.user?.admin });
 });
 
 router.post('/', async (req, res, next) => {

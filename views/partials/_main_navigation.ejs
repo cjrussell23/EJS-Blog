@@ -1,0 +1,43 @@
+<!-- Navigation Bar -->
+<nav class="navbar navbar-dark navbar-expand-md fixed-top" id="main-nav">
+    <!-- Logo/Name -->
+    <a class="navbar-brand mx-4 my-auto h1" href="/"><span>Charles</span><br><span id="russell">Russell</span></a>
+    <!-- Nav Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg"
+        aria-controls="navbarOffcanvasLg" id="main-nav-toggle">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Navbar Items -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg"
+        aria-labelledby="navbarOffcanvasLgLabel">
+        <!-- Navbar X -->
+        <div class="offcanvas-header">
+            <a class="offcanvas-title" id="offcanvasNavbarLabel" href="/"><span>Charles</span><br><span id="russell">Russell</span></a>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                    <a class="nav-link <% if (pageId = "home") { %>active<% } %>" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <% if (pageId = "blog") { %>active<% } %>" href="/blog">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <% if (pageId = "about") { %>active<% } %>" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <% if (pageId = "contact") { %>active<% } %>" href="/contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <% if (pageId = "login") { %>active<% } %>" href="/login">Login</a>
+                </li>
+                <% if (admin) { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/articles/new">New Article</a>
+                    </li>
+                    <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>

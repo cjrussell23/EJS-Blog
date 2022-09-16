@@ -3,36 +3,62 @@
 
 <head>
     <%- include('../partials/_default_head') %>
+    <link rel="stylesheet" href="../css/smile.css" />
     <title>CR - Home</title>
 </head>
 
 <body>
     <%- include('../partials/_loader') %>
-    <%- include('../partials/_main_navigation') %>
-    
-    <div class="container-fluid d-flex flex-column justify-content-between align-items-center" id="landing">
-        <div class="d-flex flex-row align-items-center flex-grow-1">
-            <div class="text-center">
-                <span id="welcome-text"></span><span class="blink" id="cursor">|</span>
+        <%- include('../partials/_main_navigation') %>
+
+            <div class="container-fluid d-flex flex-column justify-content-between align-items-center" id="landing">
+                <div class="d-flex flex-row align-items-center flex-grow-1">
+                    <div class="text-center">
+                        <span id="welcome-text"></span>       
+                        <div id="smile" class="hidden">
+                                <div class="face">
+                                    <div class="eyes">
+                                        <div class="eye"></div>
+                                        <div class="eye"></div>
+                                    </div>
+                                </div>
+                        </div>
+                        <span class="blink" id="cursor">|</span>
+                    </div>
+                </div>
+                <div>
+                    <a href="#brief-description" class="mt-auto mb-5 no-link d-flex flex-column align-items-center"
+                        id="learn-more">
+                        <p>Learn more about what I do</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor"
+                            class="bi bi-chevron-compact-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67z" />
+                        </svg>
+                    </a>
+                </div>
             </div>
-        </div>
-        <div>
-            <a href="#brief-description" class="mt-auto mb-5 no-link d-flex flex-column align-items-center" id="learn-more">
-                <p>Learn more about what I do</p>
-                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor"
-                    class="bi bi-chevron-compact-down" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67z" />
-                </svg>
-            </a>
-        </div>
-    </div>
-    <div class="container-fluid" id="brief-description">
-
-    </div>
-
-    <%- include('../partials/_end_scripts') %>
-    <script src="../js/swipe.js"></script>
+            <div class="container-fluid d-flex align-items-center" id="brief-description">
+                <div class="row">
+                    <div class="col-6"></div>
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    I am a software developer and I built this website to show the world what I can do.
+                                    Feel free to explore my <a href="/blog">blog</a>, take a look at my <a
+                                        href="/blog">projects</a>, learn more <a href="/blog">about</a> who I am, and
+                                    much more! 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" id="whatsnew"></div>
+            <%- include('../partials/_end_scripts') %>
+                <script src="../js/swipe.js"></script>
+                <script src="../js/smile.js"></script>
 </body>
 
 </html>

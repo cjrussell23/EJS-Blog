@@ -1,0 +1,70 @@
+/* Import font */
+@import url('http://fonts.googleapis.com/css?family=Roboto');
+
+#smile {
+    margin: 0;
+    display: inline-block;
+    max-width: 6rem;
+    max-height: 6rem;
+}
+
+.face {
+    position: relative;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background: #ffcd00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    transform: translate(0, -1rem);
+}
+
+.face::before {
+    content: '';
+    position: absolute;
+    top: 3.6rem;
+    width: 3rem;
+    height: 1.4rem;
+    background: #b57700;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 70px;
+}
+
+.face:hover::before {
+    top: 4.2rem;
+    width: 3rem;
+    height: .4rem;
+    background: #b57700;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.eyes {
+    position: relative;
+    top: -.8rem;
+    display: flex;
+}
+
+.eyes .eye {
+    position: relative;
+    width: 1.6rem;
+    height: 1.6rem;
+    display: block;
+    background: #fff;
+    margin: 0 .3rem;
+    border-radius: 50%;
+}
+
+.eyes .eye::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: .5rem;
+    transform: translate(-50%, -50%);
+    width: .8rem;
+    height: .8rem;
+    background: #333;
+    border-radius: 50%;
+}

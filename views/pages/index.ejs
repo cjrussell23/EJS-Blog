@@ -4,6 +4,7 @@
 <head>
     <%- include('../partials/_default_head') %>
         <link rel="stylesheet" href="../css/smile.css" />
+        <link rel="stylesheet" href="../css/home.css" />
         <title>CR - Home</title>
 </head>
 
@@ -69,12 +70,12 @@
             <div class="container-fluid px-0 d-flex" id="recent-work">
                 <div class="container-md d-flex flex-wrap px-0" id="recents-container">
                     <!-- Recent Blog -->
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mx-md-2" id="recent-project">
-                        <div class="card">
+                    <div class="col-12 col-md-6 col-lg-4" id="recent-project">
+                        <div class="card mx-md-2 my-2">
                             <div class="card-header bg-white">
                                 Most Recent Blog Post
                             </div>
-                            <img src="https://via.placeholder.com/250" class="card-img-top" alt="...">
+                            <img src="<%= articles[0].previewImageURL %>" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"><%= articles[0].title %></h5>
                                 <p class="card-text"><%= articles[0].description %></p>
@@ -83,12 +84,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mx-2" id="recent-project">
-                        <div class="card">
+                    <div class="col-12 col-md-6 col-lg-4" id="recent-project">
+                        <div class="card mx-md-2 my-2">
                             <div class="card-header bg-white">
                                 Most Recent Dev Log
                             </div>
-                            <img src="https://via.placeholder.com/250" class="card-img-top" alt="...">
+                            <img src="<%= devlogs[0].previewImageURL %>" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"><%= devlogs[0].title %></h5>
                                 <p class="card-text"><%= devlogs[0].description %></p>
@@ -97,8 +98,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mx-2" id="recent-log">
-                        <div class="card">
+                    <div class="col-12 col-md-6 col-lg-4" id="recent-log">
+                        <div class="card mx-md-2 my-2">
                             <div class="card-header bg-white">
                                 Most Recent Project
                             </div>

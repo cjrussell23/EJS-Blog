@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    
+
     <%- include('../partials/_loader') %>
         <%- include('../partials/_main_navigation') %>
 
@@ -65,49 +65,79 @@
                     </svg>
                 </a>
             </div>
-            <div class="container d-flex align-items-center justify-content-center" id="recent-work">
-                <div class="col-3 mx-2" id="recent-blog">
-                            <a href="articles/<%= articles[0].slug %>" class="article-link">
-                                <div class="card article-card">
-                                    <img src="<%= articles[0].previewImageURL %> " class="card-img-top"
-                                        alt="Image for <%= articles[0].title %>" height="250">
-                                    <div class="card-title">
-                                        <h4 class="text-center">
-                                            <%= articles[0].title %>
-                                        </h4>
-                                        <div class="card-text text-muted mb-2 px-2">
-                                            <%= articles[0].createdAt.toLocaleDateString() %>
-                                        </div>
-                                        <div class="card-subtitle px-2">
-                                            <%= articles[0].description %>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                </div>
-                <div class="col-3 mx-2" id="recent-project">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/250" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">My most recent project</h5>
-                            <p class="card-text">This is the most recent project that I am working on.</p>
-                            <a href="#" class="btn btn-primary">See on Github</a>
-                            <a href="#" class="btn btn-secondary">Other projects</a>
+            <!-- Recent Work -->
+            <div class="container-fluid px-0 d-flex" id="recent-work">
+                <div class="container-md d-flex flex-wrap px-0" id="recents-container">
+                    <!-- Recent Blog -->
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mx-md-2" id="recent-project">
+                        <div class="card">
+                            <div class="card-header bg-white">
+                                Most Recent Blog Post
+                            </div>
+                            <img src="https://via.placeholder.com/250" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= articles[0].title %></h5>
+                                <p class="card-text"><%= articles[0].description %></p>
+                                <a href="articles/<%= articles[0].slug %>" class="btn btn-primary">Read</a>
+                                <a href="/blog" class="btn btn-secondary">All posts</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-3 mx-2" id="recent-log">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/250" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mx-2" id="recent-project">
+                        <div class="card">
+                            <div class="card-header bg-white">
+                                Most Recent Dev Log
+                            </div>
+                            <img src="https://via.placeholder.com/250" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= devlogs[0].title %></h5>
+                                <p class="card-text"><%= devlogs[0].description %></p>
+                                <a href="articles/<%= devlogs[0].slug %>" class="btn btn-primary">Read</a>
+                                <a href="/blog" class="btn btn-secondary">Other posts</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mx-2" id="recent-log">
+                        <div class="card">
+                            <div class="card-header bg-white">
+                                Most Recent Project
+                            </div>
+                            <img src="https://via.placeholder.com/250" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Contact -->
+            <div class="container-fluid px-0 d-flex flex-column align-items-center justify-content-center" id="contact">
+                <div class="card text-center mt-5 py-0 px-0">
+                    <div class="card-body">
+                        <img alt="profile image" class="rounded-circle" src="../img/face.jpg" width="200" height="200"
+                            style="border: 1px solid black;">
+                    </div>
+                    <div class="card-body py-0 px-0">
+                        <h5 class="card-title">Charles Russell</h5>
+                        <p class="card-text">Calgary, Alberta</p>
+                        <p class="card-text">Phone: (204) 770-5065</p>
+                        <p class="card-text">Email: chjrussell@gmail.com</p>
+                        <div class="card-footer text-muted py-2 px-0">
+                            <div class="d-flex flex-row justify-content-evenly w-100">
+                                <a href="tel:+2047705065">
+                                    <i class="bi bi-telephone"></i>
+                                    <span>Call</span>
+                                </a>
+                                <a href="mailto:chjrussell@gmail.com">
+                                    <i class="bi bi-envelope"></i>
+                                    <span>Email</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <%- include('../partials/_end_scripts') %>
                 <script src="../js/swipe.js"></script>
                 <script src="../js/smile.js"></script>

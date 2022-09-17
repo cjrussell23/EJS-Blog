@@ -47,12 +47,14 @@ app.set('port', process.env.PORT || 3000);
 
 // routes
 app.get('/', async (req, res) => {
-    const articles = await Article.find().sort({ createdAt: 'desc' });
-    res.render('pages/index', { articles: articles, admin: req?.session?.user?.admin, pageId: 'home' });
+    const devlogs = (await Article.find().sort({ createdAt: 'desc' })).filter((article) => article.tag === 'devlog');
+    const articles = (await Article.find().sort({ createdAt: 'desc' })).filter((article) => article.tag === 'blogpost');
+    res.render('pages/index', { articles: articles, admin: req?.session?.user?.admin, pageId: 'home', devlogs: devlogs });
 });
 app.get('/blog', async (req, res) => {
-    const articles = await Article.find().sort({ createdAt: 'desc' });
-    res.render('pages/blog', { articles: articles, admin: req?.session?.user?.admin, pageId: 'blog' });
+    const devlogs = (await Article.find().sort({ createdAt: 'desc' })).filter((article) => article.tag === 'devlog');
+    const articles = (await Article.find().sort({ createdAt: 'desc' })).filter((article) => article.tag === 'blogpost');
+    res.render('pages/blog', { articles: articles, admin: req?.session?.user?.admin, pageId: 'blog', devlogs: devlogs });
 });
 app.get('/login', (req, res) => {
     res.render('pages/login', { admin: req?.session?.user?.admin, pageId: 'login' });
@@ -62,9 +64,6 @@ app.get('/register', (req, res) => {
 });
 app.get('/about', (req, res) => {
     res.render('pages/about', { admin: req?.session?.user?.admin, pageId: 'about' });
-});
-app.get('/contact', (req, res) => {
-    res.render('pages/contact', { admin: req?.session?.user?.admin, pageId: 'contact' });
 });
 app.get('/projects', (req, res) => {
     res.render('pages/projects', { admin: req?.session?.user?.admin, pageId: 'projects' });

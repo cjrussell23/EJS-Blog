@@ -54,6 +54,7 @@ function saveArticleAndRedirect(path){
         article.description = req.body.description;
         article.markdown = req.body.markdown;
         article.previewImageURL = req.body.previewImageURL;
+        article.tag = req.body.tag;
         try {
             console.log("Save article");
             article = await article.save();

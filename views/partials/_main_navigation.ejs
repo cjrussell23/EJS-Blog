@@ -1,46 +1,58 @@
 <!-- Navigation Bar -->
-<nav class="navbar navbar-expand-md fixed-top <% if (pageId == "about") { %>navbar-dark<% } else { %>navbar-light<% }%>" id="main-nav">
-    <!-- Logo/Name -->
-    <a class="navbar-brand ms-1 ms-md-3 ms-lg-5 my-auto h1" href="/"><span>Charles</span><br><span id="russell">< /> Russell</span></a>
-    <!-- Nav Button -->
-    <button class="navbar-toggler me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg"
-        aria-controls="navbarOffcanvasLg" id="main-nav-toggle">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <!-- Navbar Items -->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg"
-        aria-labelledby="navbarOffcanvasLgLabel">
-        <!-- Navbar X -->
-        <div class="offcanvas-header">
-            <a class="offcanvas-title" id="offcanvasNavbarLabel" href="/"><span>Charles</span><br><span id="russell">Russell</span></a>
-            <button type="button" class="btn-close me-3" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-5">
-                <li class="nav-item">
-                    <a class="nav-link <% if (pageId == "home") { %>active<% } %>" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <% if (pageId == "blog") { %>active<% } %>" href="/blog">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <% if (pageId == "about") { %>active<% } %>" href="/about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <% if (pageId == "projects") { %>active<% } %>" href="/projects">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <% if (pageId == "skills") { %>active<% } %>" href="/skills">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <% if (pageId == "login") { %>active<% } %>" href="/login">Login</a>
-                </li>
-                <% if (admin) { %>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/articles/new">New Article</a>
-                    </li>
-                    <% } %>
-            </ul>
-        </div>
-    </div>
+<nav class="navbar navbar-expand-md fixed-top <% if (pageId == "about") { %>navbar-dark<% } else { %>navbar-light<% }%>
+            " id="main-nav">
+            <!-- Logo/Name -->
+            <a class="navbar-brand ms-1 ms-md-3 ms-lg-5 my-auto h1" href="/"><span>Charles</span><br><span id="russell">
+                    < /> Russell
+                </span></a>
+            <!-- Nav Button -->
+            <button class="navbar-toggler me-3" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg" id="main-nav-toggle">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar Items -->
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg"
+                aria-labelledby="navbarOffcanvasLgLabel">
+                <!-- Navbar X -->
+                <div class="offcanvas-header">
+                    <a class="offcanvas-title" id="offcanvasNavbarLabel" href="/"><span>Charles</span><br><span
+                            id="russell">Russell</span></a>
+                    <button type="button" class="btn-close me-3" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-5">
+                        <li class="nav-item">
+                            <a class="nav-link <% if (pageId == "home") { %>active<% } %>" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link <% if (pageId == "about") { %>active<% } %>" href="/about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link <% if (pageId == "posts") { %>active<% } %>" href="/blog">Posts</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/blog">Blog Posts</a></li>
+                                <li><a class="dropdown-item" href="/devlogs">Dev Logs</a></li>
+                                <li><a class="dropdown-item" href="/projects">Projects</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link <% if (pageId == "skills") { %>active<% } %>" href="/skills">Skills</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link <% if (pageId == "login") { %>active<% } %>" href="/login">Login</a>
+                        </li>
+                        <% if (admin) { %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/articles/new">New Article</a>
+                            </li>
+                            <% } %>
+                    </ul>
+                </div>
+            </div>
 </nav>

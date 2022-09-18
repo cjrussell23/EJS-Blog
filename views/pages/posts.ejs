@@ -17,7 +17,7 @@
     </div>
     <div class="spacer-small">
     </div>
-    <!-- Main Content -->
+    <!-- Determine which tab is active on load - posts.js then uses openTab function to open the correct tab -->
     <% if (active == 'blogposts') { %>
         <div class="hidden" id="active">blogposts</div>
     <% } %>
@@ -27,7 +27,9 @@
     <% if (active == 'projects') { %>
         <div class="hidden" id="active">projects</div>
     <% } %>
+    <!-- Main Content -->
     <div class="container-fluid px-0" id="main-content-container">
+        <!-- Nav -->
         <ul class="d-flex justify-content-center nav nav-tabs blog-nav">
             <li class="nav-item">
             <a class="nav-link" id="blogpostsbtn" onclick="openTab('blogposts')">Blog Posts</a>
@@ -39,13 +41,12 @@
                 <a class="nav-link" id="projectsbtn" onclick="openTab('projects')">Projects</a>
             </li>
         </ul>
-
-        <div class="container-md d-flex flex-wrap px-0" id="blogposts">
-            
+        <!-- Blog Posts -->
+        <div class="container-md d-flex flex-wrap px-0" id="blogposts">    
             <% blogposts.forEach(blogpost=> { %>
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3 article-column px-0 px-md-2 py-md-2">
                     <a href="articles/<%= blogpost.slug %>" class="article-link">
-                        <div class="card blogpost-card">
+                        <div class="card article-card">
                             <img src="<%= blogpost.previewImageURL %>" class="card-img-top"
                                 alt="Image for <%= blogpost.title %>" height="250">
                             <div class="card-title">
@@ -64,9 +65,8 @@
                 </div>
                 <% }) %>
         </div>
-
+        <!-- Projects -->
         <div class="container-md d-flex flex-wrap px-0" id="projects">
-            
             <% projects.forEach(project=> { %>
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3 article-column px-0 px-md-2 py-md-2">
                     <a href="articles/<%= project.slug %>" class="article-link">
@@ -90,8 +90,8 @@
                 <% }) %>
         </div>
     </div>
+    <!-- Dev Logs -->
     <div class="container-md d-flex flex-wrap px-0" id="devlogs">
-            
         <% devlogs.forEach(devlog=> { %>
             <div class="col-12 col-md-6 col-lg-4 col-xl-3 article-column px-0 px-md-2 py-md-2">
                 <a href="articles/<%= devlog.slug %>" class="article-link">

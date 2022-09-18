@@ -63,7 +63,7 @@ function saveArticleAndRedirect(path){
             res.redirect(`/articles/${article.slug}`);
         } catch (error) {
             console.log(error);
-            res.render(`articles/${path}`, { article: article });
+            res.redirect(`articles/${path}`, { article: article });
         }
     };
 }

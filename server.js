@@ -49,17 +49,21 @@ app.set('port', process.env.PORT || 3000);
 
 // routes
 app.get('/', async (req, res) => {
-    const devlog = (await Article.find().sort({ createdAt: 'desc' })).filter((article) => article.tag === 'devlog')[0];
-    const blogpost = (await Article.find().sort({ createdAt: 'desc' })).filter((article) => article.tag === 'blogpost')[0];
+    const articles = await Article.find().sort({ createdAt: 'desc' });
+    const devlog = articles.filter((article) => article.tag === 'devlog')[0];
+    const blogpost = articles.filter((article) => article.tag === 'blogpost')[0];
+    const project = articles.filter((article) => article.tag === 'project')[0];
     blogpost.timeSince = utils.timeSince(blogpost.createdAt);
     devlog.timeSince = utils.timeSince(devlog.createdAt);
-    res.render('pages/index', { blogpost: blogpost, admin: req?.session?.user?.admin, pageId: 'home', devlog: devlog });
+    project.timeSince = utils.timeSince(project.createdAt);
+    res.render('pages/index', { blogpost: blogpost, admin: req?.session?.user?.admin, pageId: 'home', devlog: devlog, project: project });
 });
 app.get('/blog', async (req, res) => {
-    const devlogs = (await Article.find().sort({ createdAt: 'desc' })).filter((article) => article.tag === 'devlog');
-    const blogposts = (await Article.find().sort({ createdAt: 'desc' })).filter((article) => article.tag === 'blogpost');
-    blogposts.forEach((article) => {
-        article.timeSince = utils.timeSince(article.createdAt);
+    const articles = await Article.find().sort({ createdAt: 'desc' });
+    const devlogs = articles.filter((article) => article.tag === 'devlog');
+    const blogposts = articles.filter((article) => article.tag === 'blogpost');
+    blogposts.forEach((blogpost) => {
+        blogpost.timeSince = utils.timeSince(blogpost.createdAt);
     });
     devlogs.forEach((devlog) => {
         devlog.timeSince = utils.timeSince(devlog.createdAt);

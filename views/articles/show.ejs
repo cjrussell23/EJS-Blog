@@ -16,9 +16,33 @@
             <% if (admin) { %>
                 <div class="card d-flex flex-row col-6">
                     <a href="/articles/edit/<%= article.id %>" class="btn btn-secondary mx-2 my-2 w-50">Edit</a>
-                    <form class="mx-2 my-2 w-50" action="/articles/<%= article.id %>?_method=DELETE" method="post">
-                        <button class="btn btn-danger w-100" type="submit">Delete</button>
-                    </form>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-danger mx-2 my-2 w-50" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                        Delete
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="deleteModalLabel">Are you sure you want to delete this post?</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body d-flex justify-content-center">
+                                    <h1 class="text-center">There is no turning back!</h1>           
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <form action="/articles/<%= article.id %>?_method=DELETE" method="post">
+                                        <button class="btn btn-danger" type="submit">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <% } %>
                     <div class="card pt-2" style="width: 80%;">
@@ -31,7 +55,7 @@
                             </h3>
                         </div>
                         <div class="card-body">
-                            <%- article.markdown %> 
+                            <%- article.markdown %>
                         </div>
                     </div>
 

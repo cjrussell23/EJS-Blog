@@ -6,7 +6,7 @@ const express = require('express'),
     Article = require('./models/article'),
     md5 = require('md5'),
     sessions = require('express-session');
-    path = require('path');
+path = require('path');
 
 // load env variables
 const dotenv = require('dotenv');
@@ -50,7 +50,7 @@ app.set('port', process.env.PORT || 3000);
 app.get('/', async (req, res) => {
     const devlog = (await Article.find().sort({ createdAt: 'desc' })).filter((article) => article.tag === 'devlog')[0];
     const article = (await Article.find().sort({ createdAt: 'desc' })).filter((article) => article.tag === 'blogpost')[0];
-    res.render('pages/index', { article: article, admin: req?.session?.user?.admin, pageId: 'home', devlog: devlog});
+    res.render('pages/index', { article: article, admin: req?.session?.user?.admin, pageId: 'home', devlog: devlog });
 });
 app.get('/blog', async (req, res) => {
     const devlogs = (await Article.find().sort({ createdAt: 'desc' })).filter((article) => article.tag === 'devlog');
@@ -72,31 +72,36 @@ app.get('/projects', (req, res) => {
 app.get('/skills', (req, res) => {
     res.render('pages/skills', { admin: req?.session?.user?.admin, pageId: 'skills' });
 });
-app.post('/register', (req, res) => {
+app.post('/register', async (req, res) => {
     if (!req.body.username || !req.body.password) {
         res.render('pages/register', { err: 'Please enter a username and password', pageId: 'register', admin: req?.session?.user?.admin });
         return;
     }
-    // @Todo: check if username is taken
+    const userExists = await Users.findOne({ username: req.body.username });
+    if (userExists) {
+        res.render('pages/register', { err: 'Username already exists', pageId: 'register', admin: req?.session?.user?.admin });
+        return;
+    }
     const encryptedPassword = md5(req.body.password);
     const user = new Users({ username: req.body.username, password: encryptedPassword, admin: false });
     user.save((err) => {
         if (err) {
             console.log(err);
             res.render('pages/register', { err: 'Error! Cannot register user.', pageId: 'register', admin: req?.session?.user?.admin });
+            return;
         } else {
             res.render('pages/login', { admin: req?.session?.user?.admin, pageId: 'login' });
         }
     });
 });
+
 app.post('/login', (req, res) => {
     // Validate username and password
     if (!req.body.username || !req.body.password) {
         res.render('pages/login', { err: 'Please enter a username and password', pageId: 'login', admin: req?.session?.user?.admin });
         return;
     }
-    const encryptedPassword = md5(req.body.password);
-    const user = Users.findOne({ username: req.body.username, password: encryptedPassword }, (err, user) => {
+    const user = Users.findOne({ username: req.body.username, password: md5(req.body.password) }, (err, user) => {
         if (err) {
             console.log(err);
             res.render('pages/login', { err: 'Error! Cannot login user.', pageId: 'login', admin: req?.session?.user?.admin });

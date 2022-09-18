@@ -59,17 +59,31 @@ app.get('/', async (req, res) => {
     res.render('pages/index', { blogpost: blogpost, admin: req?.session?.user?.admin, pageId: 'home', devlog: devlog, project: project });
 });
 app.get('/blog', async (req, res) => {
+    renderPosts(req, res, 'blogposts');
+});
+app.get('/devlogs', async (req, res) => {
+    renderPosts(req, res, 'devlogs');
+});
+app.get('/projects', async (req, res) => {
+    renderPosts(req, res, 'projects');
+});
+async function renderPosts (req, res, article) {
     const articles = await Article.find().sort({ createdAt: 'desc' });
     const devlogs = articles.filter((article) => article.tag === 'devlog');
     const blogposts = articles.filter((article) => article.tag === 'blogpost');
+    const projects = articles.filter((article) => article.tag === 'project');
     blogposts.forEach((blogpost) => {
         blogpost.timeSince = utils.timeSince(blogpost.createdAt);
     });
     devlogs.forEach((devlog) => {
         devlog.timeSince = utils.timeSince(devlog.createdAt);
     });
-    res.render('pages/blog', { blogposts: blogposts, admin: req?.session?.user?.admin, pageId: 'blog', devlogs: devlogs });
-});
+    projects.forEach((project) => {
+        project.timeSince = utils.timeSince(project.createdAt);
+    });
+    res.render('pages/posts', { blogposts: blogposts, admin: req?.session?.user?.admin, pageId: 'posts', devlogs: devlogs, projects: projects, active: article });
+}
+
 app.get('/login', (req, res) => {
     res.render('pages/login', { admin: req?.session?.user?.admin, pageId: 'login' });
 });
@@ -78,9 +92,6 @@ app.get('/register', (req, res) => {
 });
 app.get('/about', (req, res) => {
     res.render('pages/about', { admin: req?.session?.user?.admin, pageId: 'about' });
-});
-app.get('/projects', (req, res) => {
-    res.render('pages/projects', { admin: req?.session?.user?.admin, pageId: 'projects' });
 });
 app.get('/skills', (req, res) => {
     res.render('pages/skills', { admin: req?.session?.user?.admin, pageId: 'skills' });

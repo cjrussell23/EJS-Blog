@@ -3,8 +3,8 @@
 
 <head>
     <%- include('../partials/_default_head') %>
-    <link rel="stylesheet" href="/css/blog.css">
-    <title>CR - Blog</title>
+    <link rel="stylesheet" href="/css/posts.css">
+    <title id="page-title"></title>
 </head>
 
 <body>
@@ -18,13 +18,25 @@
     <div class="spacer-small">
     </div>
     <!-- Main Content -->
+    <% if (active == 'blogposts') { %>
+        <div class="hidden" id="active">blogposts</div>
+    <% } %>
+    <% if (active == 'devlogs') { %>
+        <div class="hidden" id="active">devlogs</div>
+    <% } %>
+    <% if (active == 'projects') { %>
+        <div class="hidden" id="active">projects</div>
+    <% } %>
     <div class="container-fluid px-0" id="main-content-container">
         <ul class="d-flex justify-content-center nav nav-tabs blog-nav">
             <li class="nav-item">
-            <a class="nav-link active" id="blogpostsbtn" onclick="openTab('blogposts')">Blog Posts</a>
+            <a class="nav-link" id="blogpostsbtn" onclick="openTab('blogposts')">Blog Posts</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" id="devlogsbtn" onclick="openTab('devlogs')">Dev Logs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="projectsbtn" onclick="openTab('projects')">Projects</a>
             </li>
         </ul>
 
@@ -53,23 +65,23 @@
                 <% }) %>
         </div>
 
-        <div class="container-md d-flex flex-wrap px-0 hidden" id="devlogs">
+        <div class="container-md d-flex flex-wrap px-0" id="projects">
             
-            <% devlogs.forEach(devlog=> { %>
+            <% projects.forEach(project=> { %>
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3 article-column px-0 px-md-2 py-md-2">
-                    <a href="articles/<%= devlog.slug %>" class="article-link">
+                    <a href="articles/<%= project.slug %>" class="article-link">
                         <div class="card article-card">
-                            <img src="<%= devlog.previewImageURL %>" class="card-img-top"
-                                alt="Image for <%= devlog.title %>" height="250">
+                            <img src="<%= project.previewImageURL %>" class="card-img-top"
+                                alt="Image for <%= project.title %>" height="250">
                             <div class="card-title">
                                 <h4 class="text-center">
-                                    <%= devlog.title %>
+                                    <%= project.title %>
                                 </h4>
                                 <div class="card-text text-muted mb-2 px-2">
-                                    <%= devlog.timeSince %>
+                                    <%= project.timeSince %>
                                 </div>
                                 <div class="card-subtitle px-2">
-                                    <%= devlog.description %>
+                                    <%= project.description %>
                                 </div>
                             </div>
                         </div>
@@ -78,9 +90,34 @@
                 <% }) %>
         </div>
     </div>
+    <div class="container-md d-flex flex-wrap px-0" id="devlogs">
+            
+        <% devlogs.forEach(devlog=> { %>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3 article-column px-0 px-md-2 py-md-2">
+                <a href="articles/<%= devlog.slug %>" class="article-link">
+                    <div class="card article-card">
+                        <img src="<%= devlog.previewImageURL %>" class="card-img-top"
+                            alt="Image for <%= devlog.title %>" height="250">
+                        <div class="card-title">
+                            <h4 class="text-center">
+                                <%= devlog.title %>
+                            </h4>
+                            <div class="card-text text-muted mb-2 px-2">
+                                <%= devlog.timeSince %>
+                            </div>
+                            <div class="card-subtitle px-2">
+                                <%= devlog.description %>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <% }) %>
+    </div>
+</div>
     <%- include('../partials/_end_scripts') %>
     <script src="../js/swipe.js"></script>
-    <script src="../js/blog.js"></script>
+    <script src="../js/posts.js"></script>
 </body>
 
 </html>

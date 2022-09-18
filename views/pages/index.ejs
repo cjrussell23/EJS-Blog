@@ -87,7 +87,7 @@
                                     </div>
                                 </div>
                                 <div class="card-footer text-muted">
-                                    <%=blogpost.timeSince%>
+                                    Updated <%=blogpost.timeSince%>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +106,7 @@
                                     </div>
                                 </div>
                                 <div class="card-footer text-muted">
-                                    <%=devlog.timeSince%>
+                                    Updated <%=devlog.timeSince%>
                                 </div>
                             </div>
                         </div>
@@ -121,11 +121,11 @@
                                     <h5 class="card-title"><%= project.title %></h5>
                                     <p class="card-text"><%= project.description %></p>
                                     <div class="btn-container">
-                                        <a href="<%= project.slug %>" class="btn btn-primary">Read</a>
+                                        <a href="articles/<%= project.slug %>" class="btn btn-primary">Read</a>
                                     </div>
                                 </div>
                                 <div class="card-footer text-muted">
-                                    <%= project.timeSince %>
+                                    Updated <%= project.timeSince %>
                                 </div>
                             </div>
                         </div>

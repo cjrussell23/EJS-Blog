@@ -38,6 +38,10 @@ const articleSchema = new mongoose.Schema({
     tag: {
         type: String,
         required: true
+    },
+    githubLink: {
+        type: String,
+        required: false
     }
 });
 

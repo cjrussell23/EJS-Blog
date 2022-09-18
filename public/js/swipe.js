@@ -27,14 +27,11 @@ function handleTouchMove(evt) {
     var yDiff = yDown - yUp;
 
     if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
-        console.log(xDiff);
         if (xDiff > 10) {
             /* right swipe */
-            console.log("right swipe");
             document.getElementById("main-nav-toggle").click();
         } else {
             /* left swipe */
-            console.log("left swipe");
             document.getElementById("main-nav-toggle").click();
         }
     } else {

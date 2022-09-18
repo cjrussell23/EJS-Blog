@@ -12,8 +12,9 @@
 
     <%- include('../partials/_loader') %>
         <%- include('../partials/_main_navigation') %>
-
-            <div class="container-fluid d-flex flex-column justify-content-between align-items-center" id="landing">
+            <!-- Landing Section -->
+            <div class="scroll-snap container-fluid d-flex flex-column justify-content-between align-items-center"
+                id="landing">
                 <div class="d-flex flex-row align-items-center flex-grow-1">
                     <div class="text-center">
                         <span id="welcome-text"></span>
@@ -40,7 +41,8 @@
                     </a>
                 </div>
             </div>
-            <div class="container-fluid flex-column d-flex align-items-center justify-content-between"
+            <!-- Brief Description Section -->
+            <div class="scroll-snap container-fluid flex-column d-flex align-items-center justify-content-between"
                 id="brief-description">
                 <div class="flex-grow-1 d-flex justify-content-center align-items-center pt-5">
                     <div class="col-6">
@@ -66,55 +68,82 @@
                     </svg>
                 </a>
             </div>
-            <!-- Recent Work -->
-            <div class="container-fluid px-0 d-flex" id="recent-work">
-                <div class="container-md d-flex flex-wrap px-0" id="recents-container">
-                    <!-- Recent Blog -->
-                    <div class="col-12 col-md-6 col-lg-4" id="recent-project">
-                        <div class="card mx-md-2 my-2">
-                            <div class="card-header bg-white">
-                                Most Recent Blog Post
-                            </div>
-                            <img src="<%= articles[0].previewImageURL %>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title"><%= articles[0].title %></h5>
-                                <p class="card-text"><%= articles[0].description %></p>
-                                <a href="articles/<%= articles[0].slug %>" class="btn btn-primary">Read</a>
-                                <a href="/blog" class="btn btn-secondary">All posts</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4" id="recent-project">
-                        <div class="card mx-md-2 my-2">
-                            <div class="card-header bg-white">
-                                Most Recent Dev Log
-                            </div>
-                            <img src="<%= devlogs[0].previewImageURL %>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title"><%= devlogs[0].title %></h5>
-                                <p class="card-text"><%= devlogs[0].description %></p>
-                                <a href="articles/<%= devlogs[0].slug %>" class="btn btn-primary">Read</a>
-                                <a href="/blog" class="btn btn-secondary">Other posts</a>
+            <!-- Recent Work Section-->
+            <div class="scroll-snap container-fluid px-0 pb-5 d-flex justify-content-center align-items-center" id="recent-work">
+                <div class="container-fluid mt-5 d-flex justify-content-center align-items-center px-0 px-md-5">
+                    <div class="d-flex flex-wrap flex-row" id="cards-container">
+                        <!-- First Card - Recent Blog -->
+                        <div class="card-container">
+                            <div class="card text-center">
+                                <div class="card-header">
+                                    Newest Blog Post
+                                </div>
+                                <div class="card-body d-flex justify-content-between flex-column">
+                                    <img src="<%= article.previewImageURL %>" class="card-img-top" alt="...">
+                                    <h5 class="card-title"><%= article.title %></h5>
+                                    <p class="card-text"><%= article.description %></p>
+                                    <div class="btn-container">
+                                        <a href="articles/<%= article.slug %>" class="btn btn-primary">Read Post</a>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-muted">
+                                    <% if (article.timeSince) {
+                                        %> <%=article.timeSince%> <%
+                                    } else {
+                                        %> <%=article.createdAt.toLocaleDateString()%> <%
+                                    } %>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4" id="recent-log">
-                        <div class="card mx-md-2 my-2">
-                            <div class="card-header bg-white">
-                                Most Recent Project
+                        <!-- Second Card Recent Dev Log -->
+                        <div class="card-container">
+                            <div class="card text-center">
+                                <div class="card-header">
+                                    Newest Dev Log
+                                </div>
+                                <div class="card-body d-flex justify-content-between flex-column">
+                                    <img src="<%= devlog.previewImageURL %>" class="card-img-top" alt="...">
+                                    <h5 class="card-title"><%= devlog.title %></h5>
+                                    <p class="card-text"><%= devlog.description %></p>
+                                    <div class="btn-container">
+                                        <a href="articles/<%= devlog.slug %>" class="btn btn-primary">Read Post</a>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-muted">
+                                    <% if (devlog.timeSince) {
+                                        %> <%=devlog.timeSince%> <%
+                                    } else {
+                                        %> <%=devlog.createdAt.toLocaleDateString()%> <%
+                                    } %>
+                                </div>
                             </div>
-                            <img src="https://via.placeholder.com/250" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                        <!-- Third Card Recent Project -->
+                        <div class="card-container">
+                            <div class="card text-center">
+                                <div class="card-header">
+                                    Newest Project
+                                </div>
+                                <div class="card-body d-flex justify-content-between flex-column">
+                                    <img src="../img/placeholder/140x100.png" class="card-img-top" alt="...">
+                                    <h5 class="card-title">Special title treatment</h5>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional
+                                        content.</p>
+                                    <div class="btn-container">
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-muted">
+                                    2 days ago
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Contact -->
-            <div class="container-fluid px-0 d-flex flex-column align-items-center justify-content-center" id="contact">
+            <!-- Contact Section -->
+            <div class="scroll-snap container-fluid px-0 d-flex flex-column align-items-center justify-content-center"
+                id="contact">
                 <div class="card text-center mt-5 py-0 px-0">
                     <div class="card-body">
                         <img alt="profile image" class="rounded-circle" src="../img/face.jpg" width="200" height="200"
@@ -139,9 +168,9 @@
                         </div>
                     </div>
                 </div>
-            <%- include('../partials/_end_scripts') %>
-                <script src="../js/swipe.js"></script>
-                <script src="../js/smile.js"></script>
+                <%- include('../partials/_end_scripts') %>
+                    <script src="../js/swipe.js"></script>
+                    <script src="../js/smile.js"></script>
 </body>
 
 </html>

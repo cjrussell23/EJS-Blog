@@ -3,53 +3,40 @@
 
 <head>
     <%- include('../partials/_default_head') %>
-    <title>
-        <%= article.title %>
-    </title>
+        <title>
+            <%= article.title %>
+        </title>
 </head>
 
 <body>
     <%- include('../partials/_main_navigation') %>
-    <div id="header-small">
-        <div id="header-image">
+        <div class="spacer-small">
         </div>
-    </div>
-    <div id="spacer-small">
-    </div>
-    <div class="container-md mt-4">
-        <div class="row">
-            <div class="col-12 col-md-3 px-0 px-md-2">
-                <div class="card px-2 py-2">
-                    <img src="<%= article.previewImageURL %>" class="card-img-top" alt="<%= article.title %>">
-                    <h1 class="card-title">
-                        <%= article.title %>
-                    </h1>
-                    <div class="card-subtitle text-muted mb-2">
-                        <%= article.createdAt.toLocaleDateString() %>
+        <div class="container-md mt-4 d-flex align-items-center justify-content-center flex-column">
+            <% if (admin) { %>
+                <div class="card d-flex flex-row col-6">
+                    <a href="/articles/edit/<%= article.id %>" class="btn btn-secondary mx-2 my-2 w-50">Edit</a>
+                    <form class="mx-2 my-2 w-50" action="/articles/<%= article.id %>?_method=DELETE" method="post">
+                        <button class="btn btn-danger w-100" type="submit">Delete</button>
+                    </form>
+                </div>
+                <% } %>
+                    <div class="card pt-2" style="width: 80%;">
+                        <div class="card-header d-flex justify-content-around">
+                            <h3>
+                                <%= article.title %>
+                            </h3>
+                            <h3 class="text-secondary">
+                                <%= article.timeSince %>
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <%- article.markdown %> 
+                        </div>
                     </div>
-                    <a href="/blog" class="btn btn-primary mx-2 my-2">All Articles</a>
-                    <!-- Only for admin -->
-                    <% if (admin) { %>
-                        <a href="/articles/edit/<%= article.id %>" class="btn btn-secondary mx-2 my-2">Edit</a>
-                        <form class="d-inline mx-2 my-2" action="/articles/<%= article.id %>?_method=DELETE" method="post">
-                            <button class="btn btn-danger w-100" type="submit">Delete</button>
-                        </form>
-                    <% } %>
-                    <!-- End only for admin -->
 
-                </div>
-            </div>
-            <div class="col-12 col-md-9 px-0 px-md-2">
-                <div class="card px-2 py-2">
-                    <div class="card-text" id="article-text">
-                        <%- article.markdown %>
-                    </div>
-                </div>
-                
-            </div>
         </div>
-    </div>
-    <%- include('../partials/_end_scripts') %>
+        <%- include('../partials/_end_scripts') %>
 </body>
 
 </html>

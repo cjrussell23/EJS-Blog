@@ -1,7 +1,3 @@
-.spacer-small {
-    height: 81px;
-}
-
 .article-card:hover {
     box-shadow: -2px 0 var(--dark-secondary), 0 2px var(--dark-secondary), 2px 0 var(--dark-secondary), 0 -2px var(--dark-secondary);
     text-decoration: none;
@@ -23,7 +19,8 @@
 .article-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    max-height: 50vh;
+    object-fit: cover !important;
 }
 
 .blog-nav a{

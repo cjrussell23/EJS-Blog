@@ -37,7 +37,11 @@ const articleSchema = new mongoose.Schema({
     },
     tag: {
         type: String,
-        required: false
+        required: true
+    },
+    timeSince: {
+        type: String,
+        required: true
     }
 });
 

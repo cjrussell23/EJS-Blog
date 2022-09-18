@@ -5,8 +5,9 @@ const express = require('express'),
     methodOverride = require('method-override'),
     Article = require('./models/article'),
     md5 = require('md5'),
-    sessions = require('express-session');
-path = require('path');
+    sessions = require('express-session'),
+    utils = require('./utils/timeSince'),
+    path = require('path');
 
 // load env variables
 const dotenv = require('dotenv');
@@ -49,13 +50,21 @@ app.set('port', process.env.PORT || 3000);
 // routes
 app.get('/', async (req, res) => {
     const devlog = (await Article.find().sort({ createdAt: 'desc' })).filter((article) => article.tag === 'devlog')[0];
-    const article = (await Article.find().sort({ createdAt: 'desc' })).filter((article) => article.tag === 'blogpost')[0];
-    res.render('pages/index', { article: article, admin: req?.session?.user?.admin, pageId: 'home', devlog: devlog });
+    const blogpost = (await Article.find().sort({ createdAt: 'desc' })).filter((article) => article.tag === 'blogpost')[0];
+    blogpost.timeSince = utils.timeSince(blogpost.createdAt);
+    devlog.timeSince = utils.timeSince(devlog.createdAt);
+    res.render('pages/index', { blogpost: blogpost, admin: req?.session?.user?.admin, pageId: 'home', devlog: devlog });
 });
 app.get('/blog', async (req, res) => {
     const devlogs = (await Article.find().sort({ createdAt: 'desc' })).filter((article) => article.tag === 'devlog');
-    const articles = (await Article.find().sort({ createdAt: 'desc' })).filter((article) => article.tag === 'blogpost');
-    res.render('pages/blog', { articles: articles, admin: req?.session?.user?.admin, pageId: 'blog', devlogs: devlogs });
+    const blogposts = (await Article.find().sort({ createdAt: 'desc' })).filter((article) => article.tag === 'blogpost');
+    blogposts.forEach((article) => {
+        article.timeSince = utils.timeSince(article.createdAt);
+    });
+    devlogs.forEach((devlog) => {
+        devlog.timeSince = utils.timeSince(devlog.createdAt);
+    });
+    res.render('pages/blog', { blogposts: blogposts, admin: req?.session?.user?.admin, pageId: 'blog', devlogs: devlogs });
 });
 app.get('/login', (req, res) => {
     res.render('pages/login', { admin: req?.session?.user?.admin, pageId: 'login' });
@@ -117,6 +126,7 @@ app.post('/login', (req, res) => {
 });
 app.use('/articles', articleRouter);
 app.use(express.static('public'));
+
 
 // start server
 app.listen(app.get('port'), function () {

@@ -79,19 +79,15 @@
                                     Newest Blog Post
                                 </div>
                                 <div class="card-body d-flex justify-content-between flex-column">
-                                    <img src="<%= article.previewImageURL %>" class="card-img-top" alt="...">
-                                    <h5 class="card-title"><%= article.title %></h5>
-                                    <p class="card-text"><%= article.description %></p>
+                                    <img src="<%= blogpost.previewImageURL %>" class="card-img-top" alt="...">
+                                    <h5 class="card-title"><%= blogpost.title %></h5>
+                                    <p class="card-text"><%= blogpost.description %></p>
                                     <div class="btn-container">
-                                        <a href="articles/<%= article.slug %>" class="btn btn-primary">Read Post</a>
+                                        <a href="articles/<%= blogpost.slug %>" class="btn btn-primary">Read Post</a>
                                     </div>
                                 </div>
                                 <div class="card-footer text-muted">
-                                    <% if (article.timeSince) {
-                                        %> <%=article.timeSince%> <%
-                                    } else {
-                                        %> <%=article.createdAt.toLocaleDateString()%> <%
-                                    } %>
+                                    <%=blogpost.timeSince%>
                                 </div>
                             </div>
                         </div>
@@ -110,11 +106,7 @@
                                     </div>
                                 </div>
                                 <div class="card-footer text-muted">
-                                    <% if (devlog.timeSince) {
-                                        %> <%=devlog.timeSince%> <%
-                                    } else {
-                                        %> <%=devlog.createdAt.toLocaleDateString()%> <%
-                                    } %>
+                                    <%=devlog.timeSince%>
                                 </div>
                             </div>
                         </div>

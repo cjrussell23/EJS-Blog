@@ -30,21 +30,21 @@
 
         <div class="container-md d-flex flex-wrap px-0" id="blogposts">
             
-            <% articles.forEach(article=> { %>
+            <% blogposts.forEach(blogpost=> { %>
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3 article-column px-0 px-md-2 py-md-2">
-                    <a href="articles/<%= article.slug %>" class="article-link">
-                        <div class="card article-card">
-                            <img src="<%= article.previewImageURL %>" class="card-img-top"
-                                alt="Image for <%= article.title %>" height="250">
+                    <a href="articles/<%= blogpost.slug %>" class="article-link">
+                        <div class="card blogpost-card">
+                            <img src="<%= blogpost.previewImageURL %>" class="card-img-top"
+                                alt="Image for <%= blogpost.title %>" height="250">
                             <div class="card-title">
                                 <h4 class="text-center">
-                                    <%= article.title %>
+                                    <%= blogpost.title %>
                                 </h4>
                                 <div class="card-text text-muted mb-2 px-2">
-                                    <%= article.createdAt.toLocaleDateString() %>
+                                    <%= blogpost.timeSince %>
                                 </div>
                                 <div class="card-subtitle px-2">
-                                    <%= article.description %>
+                                    <%= blogpost.description %>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                                     <%= devlog.title %>
                                 </h4>
                                 <div class="card-text text-muted mb-2 px-2">
-                                    <%= devlog.createdAt.toLocaleDateString() %>
+                                    <%= devlog.timeSince %>
                                 </div>
                                 <div class="card-subtitle px-2">
                                     <%= devlog.description %>

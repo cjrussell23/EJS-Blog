@@ -1,4 +1,4 @@
 /* Login / Register Page */
 #loginContainer {
-    height: 60%;
+    min-height: 100vh;
 }

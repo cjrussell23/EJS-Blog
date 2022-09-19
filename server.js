@@ -140,14 +140,14 @@ app.post('/login', (req, res) => {
     });
 });
 
+
+app.use('/articles', articleRouter);
+app.use(express.static('public'));
+
 //The 404 Route (ALWAYS Keep this as the last route)
 app.get('*', function (req, res) {
     res.status(404).render('pages/404', { admin: req?.session?.user?.admin, pageId: '404' });
 });
-app.use('/articles', articleRouter);
-app.use(express.static('public'));
-
-
 // start server
 app.listen(app.get('port'), function () {
     console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate');

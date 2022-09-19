@@ -47,7 +47,7 @@ router.delete('/:id', async (req, res) => {
         res.redirect('/login');
     }
     await Article.findByIdAndDelete(req.params.id);
-    res.redirect('/');
+    res.redirect('/blog');
 });
 function saveArticleAndRedirect(path){
     return async (req, res) => {
@@ -60,10 +60,17 @@ function saveArticleAndRedirect(path){
         try {
             console.log("Save article");
             article = await article.save();
-            res.redirect(`/articles/${article.slug}`);
         } catch (error) {
             console.log(error);
-            res.redirect(`articles/${path}`, { article: article });
+        }
+        if (article.tag == "blog") {
+            res.redirect('/blog');
+        }
+        else if (article.tag == "devlog") {
+            res.redirect('/devlogs');
+        }
+        else if (article.tag == "project") {
+            res.redirect('/projects');
         }
     };
 }

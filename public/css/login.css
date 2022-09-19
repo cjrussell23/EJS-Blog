@@ -2,3 +2,7 @@
 #loginContainer {
     min-height: 100vh;
 }
+
+#main-nav {
+    background-color: var(--primary);
+}

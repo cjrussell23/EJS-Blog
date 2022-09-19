@@ -1,0 +1,6 @@
+.main-content {
+    height: 100%;
+}
+#main-nav {
+    background-color: var(--primary);
+}

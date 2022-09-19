@@ -67,7 +67,7 @@ app.get('/devlogs', async (req, res) => {
 app.get('/projects', async (req, res) => {
     renderPosts(req, res, 'projects');
 });
-async function renderPosts (req, res, article) {
+async function renderPosts(req, res, article) {
     const articles = await Article.find().sort({ createdAt: 'desc' });
     const devlogs = articles.filter((article) => article.tag === 'devlog');
     const blogposts = articles.filter((article) => article.tag === 'blogpost');
@@ -138,6 +138,11 @@ app.post('/login', (req, res) => {
             }
         }
     });
+});
+
+//The 404 Route (ALWAYS Keep this as the last route)
+app.get('*', function (req, res) {
+    res.status(404).render('pages/404', { admin: req?.session?.user?.admin, pageId: '404' });
 });
 app.use('/articles', articleRouter);
 app.use(express.static('public'));

@@ -1,5 +1,5 @@
 <!-- Navigation Bar -->
-<nav class="navbar navbar-expand-md fixed-top <% if (pageId == "about") { %>navbar-dark<% } else { %>navbar-light<% }%>
+<nav class="navbar navbar-expand-md fixed-top <% if (pageId == "home") { %>navbar-light<% } else { %>navbar-dark<% }%>
             " id="main-nav">
             <!-- Logo/Name -->
             <a class="navbar-brand ms-1 ms-md-3 ms-lg-5 my-auto h1" href="/"><span>Charles</span><br><span id="russell">
@@ -38,9 +38,9 @@
                                 <li><a id="projects-link" class="dropdown-item" href="/projects">Projects</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link <% if (pageId == "skills") { %>active<% } %>" href="/skills">Skills</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link <% if (pageId == "login") { %>active<% } %>" href="/login">Login</a>
                         </li>

@@ -13,7 +13,7 @@
     <%- include('../partials/_loader') %>
         <%- include('../partials/_main_navigation') %>
             <!-- Landing Section -->
-            <div class="scroll-snap container-fluid d-flex flex-column justify-content-between align-items-center"
+            <div class="container-fluid d-flex flex-column justify-content-between align-items-center"
                 id="landing">
                 <div class="d-flex flex-row align-items-center flex-grow-1">
                     <div class="text-center">
@@ -42,21 +42,19 @@
                 </div>
             </div>
             <!-- Brief Description Section -->
-            <div class="scroll-snap container-fluid flex-column d-flex align-items-center justify-content-between"
+            <div class="container-fluid flex-column d-flex align-items-center justify-content-between"
                 id="brief-description">
                 <div class="flex-grow-1 d-flex justify-content-center align-items-center pt-5">
-                    <div class="col-6">
                         <div id="brief-text">
-                            <h1 class="blur-bg">Hi there! <span class="wave">👋</span> I am a software developer with a
+                            <h5 class="blur-bg">Hi there! <span class="wave">👋</span> I am a software developer with a
                                 passion for
-                                technology.</h1>
-                            <h1 class="my-5 blur-bg">I built this website to show the world what I can do.</h1>
-                            <h1 class="blur-bg">Feel free to explore my <a href="/blog">blog</a>, take a look at my <a
+                                technology.</h5>
+                            <h5 class="my-5 blur-bg">I built this website to show the world what I can do.</h5>
+                            <h5 class="blur-bg">Feel free to explore my <a href="/blog">blog</a>, take a look at my <a
                                     href="/blog">projects</a>, learn more <a href="/blog">about</a> who I am, and much
                                 more!
-                            </h1>
+                            </h5>
                         </div>
-                    </div>
                 </div>
                 <a href="#recent-work" class="bounce mt-auto mb-5 no-link d-flex flex-column align-items-center"
                     id="learn-more">
@@ -69,7 +67,7 @@
                 </a>
             </div>
             <!-- Recent Work Section-->
-            <div class="scroll-snap container-fluid px-0 pb-5 d-flex justify-content-center align-items-center" id="recent-work">
+            <div class="container-fluid px-0 pb-5 d-flex justify-content-between align-items-center flex-column " id="recent-work">
                 <div class="container-fluid mt-5 d-flex justify-content-center align-items-center px-0 px-md-5">
                     <div class="d-flex flex-wrap flex-row" id="cards-container">
                         <!-- First Card - Recent Blog -->
@@ -84,7 +82,7 @@
                                     <p class="card-text"><%= blogpost.description %></p>
                                     <div class="btn-container">
                                         <a href="articles/<%= blogpost.slug %>" class="btn btn-primary">Read Post</a>
-                                        <a href="/blog" class="btn btn-secondary">All Blog Posts</a>
+                                        <a href="/blog" class="btn btn-secondary">Blog Posts</a>
                                     </div>
                                 </div>
                                 <div class="card-footer text-muted">
@@ -104,7 +102,7 @@
                                     <p class="card-text"><%= devlog.description %></p>
                                     <div class="btn-container">
                                         <a href="articles/<%= devlog.slug %>" class="btn btn-primary">Read Post</a>
-                                        <a href="/devlogs" class="btn btn-secondary">All Dev Logs</a>
+                                        <a href="/devlogs" class="btn btn-secondary">Dev Logs</a>
                                     </div>
                                 </div>
                                 <div class="card-footer text-muted">
@@ -124,7 +122,7 @@
                                     <p class="card-text"><%= project.description %></p>
                                     <div class="btn-container">
                                         <a href="articles/<%= project.slug %>" class="btn btn-primary">Read</a>
-                                        <a href="/projects" class="btn btn-secondary">All Projects</a>
+                                        <a href="/projects" class="btn btn-secondary">Projects</a>
                                     </div>
                                 </div>
                                 <div class="card-footer text-muted">
@@ -134,31 +132,42 @@
                         </div>
                     </div>
                 </div>
+                <a href="#contact" class="bounce mt-5 no-link d-flex flex-column align-items-center"
+                    id="learn-more">
+                    <p>Contact me!</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor"
+                        class="bi bi-chevron-compact-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67z" />
+                    </svg>
+                </a>
             </div>
             <!-- Contact Section -->
-            <div class="scroll-snap container-fluid px-0 d-flex flex-column align-items-center justify-content-center"
+            <div class="line"></div>
+            <div class="container-fluid px-0 d-flex flex-column align-items-center justify-content-center"
                 id="contact">
                 <div class="card text-center mt-5 py-0 px-0">
                     <div class="card-body">
                         <img alt="profile image" class="rounded-circle" src="../img/face.jpg" width="200" height="200"
                             style="border: 1px solid black;">
                     </div>
-                    <div class="card-body py-0 px-0">
-                        <h5 class="card-title">Charles Russell</h5>
+                    <div class="card-body py-0 px-5">
+                        <h5 class="card-title mb-5">Charles Russell</h5>
                         <p class="card-text">Calgary, Alberta</p>
-                        <p class="card-text">Phone: (204) 770-5065</p>
-                        <p class="card-text">Email: chjrussell@gmail.com</p>
-                        <div class="card-footer text-muted py-2 px-0">
-                            <div class="d-flex flex-row justify-content-evenly w-100">
-                                <a href="tel:+2047705065">
-                                    <i class="bi bi-telephone"></i>
-                                    <span>Call</span>
-                                </a>
-                                <a href="mailto:chjrussell@gmail.com">
-                                    <i class="bi bi-envelope"></i>
-                                    <span>Email</span>
-                                </a>
-                            </div>
+                        <p class="card-text">Phone: <a href="tel:+2047705065">(204) 770-5065</a></p>
+                        <p class="card-text">Email: <a href="mailto:chjrussell@gmail.com">chjrussell@gmail.com</a></p> 
+                        <p class="card-text">LinkedIn: <a href="https://www.linkedin.com/in/charles-russell-671306244/">charles-russell-671306244</a></p>
+                    </div>
+                    <div class="card-footer text-muted py-2 px-0 mt-5">
+                        <div class="d-flex flex-row justify-content-evenly w-100">
+                            <a href="tel:+2047705065">
+                                <i class="bi bi-telephone"></i>
+                                <span>Call</span>
+                            </a>
+                            <a href="mailto:chjrussell@gmail.com">
+                                <i class="bi bi-envelope"></i>
+                                <span>Email</span>
+                            </a>
                         </div>
                     </div>
                 </div>

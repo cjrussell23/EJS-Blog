@@ -42,7 +42,7 @@
             </li>
         </ul>
         <!-- Blog Posts -->
-        <div class="container-md d-flex flex-wrap px-0" id="blogposts">    
+        <div class="container-md d-flex flex-wrap px-0 post-container" id="blogposts">    
             <% blogposts.forEach(blogpost=> { %>
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3 article-column px-0 px-md-2 py-md-2">
                     <a href="articles/<%= blogpost.slug %>" class="article-link">
@@ -66,7 +66,7 @@
                 <% }) %>
         </div>
         <!-- Projects -->
-        <div class="container-md d-flex flex-wrap px-0" id="projects">
+        <div class="container-md d-flex flex-wrap px-0 post-container" id="projects">
             <% projects.forEach(project=> { %>
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3 article-column px-0 px-md-2 py-md-2">
                     <a href="articles/<%= project.slug %>" class="article-link">
@@ -91,7 +91,7 @@
         </div>
     </div>
     <!-- Dev Logs -->
-    <div class="container-md d-flex flex-wrap px-0" id="devlogs">
+    <div class="container-md d-flex flex-wrap px-0 post-container" id="devlogs">
         <% devlogs.forEach(devlog=> { %>
             <div class="col-12 col-md-6 col-lg-4 col-xl-3 article-column px-0 px-md-2 py-md-2">
                 <a href="articles/<%= devlog.slug %>" class="article-link">

@@ -28,17 +28,14 @@
                         <li class="nav-item">
                             <a class="nav-link <% if (pageId == "about") { %>active<% } %>" href="/about">About</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link <% if (pageId == "posts") { %>active<% } %>" href="/blog">Posts</a>
-                        </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
+                            <a class="nav-link dropdown-toggle <% if (pageId == "posts") { %>active<% } %>" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">Articles
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/blog">Blog Posts</a></li>
-                                <li><a class="dropdown-item" href="/devlogs">Dev Logs</a></li>
-                                <li><a class="dropdown-item" href="/projects">Projects</a></li>
+                                <li><a id="blogposts-link" class="dropdown-item" href="/blog">Blog Posts</a></li>
+                                <li><a id="devlogs-link" class="dropdown-item" href="/devlogs">Dev Logs</a></li>
+                                <li><a id="projects-link" class="dropdown-item" href="/projects">Projects</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">

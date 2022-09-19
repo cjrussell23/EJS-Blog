@@ -81,7 +81,7 @@ async function renderPosts (req, res, article) {
     projects.forEach((project) => {
         project.timeSince = utils.timeSince(project.createdAt);
     });
-    res.render('pages/posts', { blogposts: blogposts, admin: req?.session?.user?.admin, pageId: 'posts', devlogs: devlogs, projects: projects, active: article });
+    res.render('pages/posts', { blogposts: blogposts, admin: req?.session?.user?.admin, pageId: "posts", devlogs: devlogs, projects: projects, active: article });
 }
 
 app.get('/login', (req, res) => {

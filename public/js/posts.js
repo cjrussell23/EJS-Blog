@@ -1,16 +1,20 @@
 function openTab(tabName) {
     // Open tab
     let tabToOpen = document.getElementById(tabName);
+    let link = document.getElementById(tabName + "-link");
     let btn = document.getElementById(tabName + "btn");
     let pageTitle = document.getElementById("page-title");
     tabToOpen.classList.remove('hidden');
     btn.classList.add('active');
+    link.classList.add('active');
     // Close the other tab
     if (tabName == "blogposts") {
         document.getElementById("devlogs").classList.add('hidden');
         document.getElementById("devlogsbtn").classList.remove('active');
         document.getElementById("projects").classList.add('hidden');
         document.getElementById("projectsbtn").classList.remove('active');
+        document.getElementById("devlogs-link").classList.remove('active');
+        document.getElementById("projects-link").classList.remove('active');
         pageTitle.innerHTML = "Blog Posts";
     }
     else if (tabName == "devlogs") {
@@ -18,6 +22,8 @@ function openTab(tabName) {
         document.getElementById("blogpostsbtn").classList.remove('active');
         document.getElementById("projects").classList.add('hidden');
         document.getElementById("projectsbtn").classList.remove('active');
+        document.getElementById("blogposts-link").classList.remove('active');
+        document.getElementById("projects-link").classList.remove('active');
         pageTitle.innerHTML = "Dev Logs";
     }
     else if (tabName == "projects") {
@@ -25,6 +31,8 @@ function openTab(tabName) {
         document.getElementById("blogpostsbtn").classList.remove('active');
         document.getElementById("devlogs").classList.add('hidden');
         document.getElementById("devlogsbtn").classList.remove('active');
+        document.getElementById("blogposts-link").classList.remove('active');
+        document.getElementById("devlogs-link").classList.remove('active');
         pageTitle.innerHTML = "Projects";
     }
 }

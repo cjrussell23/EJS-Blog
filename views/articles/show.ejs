@@ -57,6 +57,14 @@
                         <div class="card-body">
                             <%- article.markdown %>
                         </div>
+                        <div class="card-footer">
+                            <% if (article.githublink) { %>
+                                <a href="<%= article.githublink %>" class="btn btn-primary mx-2 my-2">See on Github</a>
+                            <% } %>
+                            <% if (article.githubdownload) { %>
+                                <a href="<%= article.githubdownload %>" class="btn btn-secondary mx-2 my-2">Download</a>
+                            <% } %>
+                        </div>
                     </div>
 
         </div>

@@ -39,7 +39,11 @@ const articleSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    githubLink: {
+    githublink: {
+        type: String,
+        required: false
+    },
+    githubdownload: {
         type: String,
         required: false
     }

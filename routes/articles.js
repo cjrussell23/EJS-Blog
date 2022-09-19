@@ -57,6 +57,8 @@ function saveArticleAndRedirect(path){
         article.markdown = req.body.markdown;
         article.previewImageURL = req.body.previewImageURL;
         article.tag = req.body.tag;
+        article.githublink = req.body.githublink;
+        article.githubdownload = req.body.githubdownload;
         try {
             console.log("Save article");
             article = await article.save();
@@ -71,6 +73,9 @@ function saveArticleAndRedirect(path){
         }
         else if (article.tag == "project") {
             res.redirect('/projects');
+        }
+        else {
+            res.redirect('/');
         }
     };
 }

@@ -24,7 +24,7 @@ h1 {
     height: 100%;
     background-color: var(--secondary);
     position: absolute;
-    left: 81px; 
+    left: 64px; 
     top: 4px;
     overflow: hidden;
 }
@@ -108,4 +108,10 @@ h1 {
 }
 .date {
     line-height: 0.8;
+}
+#vertical-scrollable-timeline p {
+    padding-right: 1rem;
+}
+#vertical-scrollable-timeline {
+    padding-left: 1rem;
 }

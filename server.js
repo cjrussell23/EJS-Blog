@@ -58,6 +58,9 @@ app.get('/', async (req, res) => {
     project.timeSince = utils.timeSince(project.createdAt);
     res.render('pages/index', { blogpost: blogpost, admin: req?.session?.user?.admin, pageId: 'home', devlog: devlog, project: project });
 });
+app.get('/resume', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'CharlesRussellResume.pdf'));
+});
 app.get('/blog', async (req, res) => {
     renderPosts(req, res, 'blogposts');
 });

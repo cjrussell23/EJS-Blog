@@ -101,7 +101,6 @@ h6 {
         width: 90%;
         height: 1px;
         background-color: #000000;
-
     }
 
     .navbar-nav li:first-child::before {
@@ -110,6 +109,11 @@ h6 {
 
     #navbarOffcanvasLg {
         width: 100vw;
+    }
+
+    #main-nav .dropdown-item {
+        text-align: center;
+        font-size: 3rem;
     }
 }
 

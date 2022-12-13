@@ -70,6 +70,12 @@ app.get('/devlogs', async (req, res) => {
 app.get('/projects', async (req, res) => {
     renderPosts(req, res, 'projects');
 });
+app.get('/cards', async (req, res) => {
+    res.redirect('https://cards-l98uqv8aw-cjrussell23.vercel.app/');
+});
+app.get('/tasts', async (req, res) => {
+    res.redirect('https://task-ob2t.vercel.app/');
+});
 async function renderPosts(req, res, article) {
     const articles = await Article.find().sort({ createdAt: 'desc' });
     const devlogs = articles.filter((article) => article.tag === 'devlog');

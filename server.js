@@ -73,7 +73,7 @@ app.get('/projects', async (req, res) => {
 app.get('/cards', async (req, res) => {
     res.redirect('https://cards-l98uqv8aw-cjrussell23.vercel.app/');
 });
-app.get('/tasts', async (req, res) => {
+app.get('/tasks', async (req, res) => {
     res.redirect('https://task-ob2t.vercel.app/');
 });
 async function renderPosts(req, res, article) {

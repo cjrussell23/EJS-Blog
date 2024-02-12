@@ -2,17 +2,17 @@
 
 <br />
 <div align="center">
-<h3 align="center">EJS Blog</h3>
+<h3 align="center">BreadcrumbsEJS-TinyMCE-Blog-Charles</h3>
 
   <p align="center">
     A website featuring blogs, dev logs, and projects. Includes user authentication and an admin state for CRUD operations on all posts. Utilizes TinyMCE as a rich text editor for posts.
     <br />
-    <a href="https://github.com/cjrussell23/EJS-Blog"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/cjrussell23/EJS-TinyMCE-Blog-Charles"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/cjrussell23/EJS-Blog/issues">Report Bug</a>
+    <a href="https://github.com/cjrussell23/EJS-TinyMCE-Blog-Charles/issues">Report Bug</a>
     ·
-    <a href="https://github.com/cjrussell23/EJS-Blog/issues">Request Feature</a>
+    <a href="https://github.com/cjrussell23/EJS-TinyMCE-Blog-Charles/issues">Request Feature</a>
   </p>
 </div>
 
@@ -54,11 +54,11 @@ Whether you are a blogger, developer, or simply someone who wants to showcase th
 
 ### Gallery
 
-![blog-screenshot](https://github.com/cjrussell23/EJS-Blog/assets/81775200/3bea9fa0-ae9f-4dd6-915c-1699d5e911b9)
+![blog-screenshot](https://github.com/cjrussell23/EJS-TinyMCE-Blog-Charles/assets/81775200/3bea9fa0-ae9f-4dd6-915c-1699d5e911b9)
 
-![blog-nav](https://github.com/cjrussell23/EJS-Blog/assets/81775200/87029869-60ed-4f35-8c8b-87e06fb54193)
+![blog-nav](https://github.com/cjrussell23/EJS-TinyMCE-Blog-Charles/assets/81775200/87029869-60ed-4f35-8c8b-87e06fb54193)
 
-![Screenshot 2022-09-17 224432](https://github.com/cjrussell23/EJS-Blog/assets/81775200/c3c2dee6-c61b-4c5a-b7ab-9e3dc5afac2c)
+![Screenshot 2022-09-17 224432](https://github.com/cjrussell23/EJS-TinyMCE-Blog-Charles/assets/81775200/c3c2dee6-c61b-4c5a-b7ab-9e3dc5afac2c)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -85,7 +85,7 @@ Ensure you have the following installed:
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/cjrussell23/EJS-Blog.git
+   git clone https://github.com/cjrussell23/EJS-TinyMCE-Blog-Charles.git
    ```
 2. Install NPM packages
    ```
@@ -103,6 +103,6 @@ Ensure you have the following installed:
 
 Charles Russell
 
-Project Link: [https://github.com/cjrussell23/EJS-Blog](https://github.com/cjrussell23/EJS-Blog)
+Project Link: [https://github.com/cjrussell23/EJS-TinyMCE-Blog-Charles](https://github.com/cjrussell23/EJS-TinyMCE-Blog-Charles)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

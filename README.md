@@ -2,7 +2,7 @@
 
 <br />
 <div align="center">
-<h3 align="center">BreadcrumbsEJS-TinyMCE-Blog-Charles</h3>
+<h3 align="center">EJS-TinyMCE-Blog-Charles</h3>
 
   <p align="center">
     A website featuring blogs, dev logs, and projects. Includes user authentication and an admin state for CRUD operations on all posts. Utilizes TinyMCE as a rich text editor for posts.

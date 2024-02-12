@@ -92,7 +92,7 @@ Ensure you have the following installed:
    npm install
    ```
 3. Create a .env file in the root directory and add necessary environment variables.
-   ``sh
+   ```sh
    MONGO_URI=your_mongodb_connection_uri
    SESSION_SECRET=your_session_secret_key
    ```
